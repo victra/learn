@@ -13,6 +13,8 @@ run_pod:
 	kubectl port-forward nginx 8888:80
 delete_pod:
 	kubectl delete pod nginx-label
+delete_pod-all:
+	kubectl delete pod --all
 
 list_pod_label:
 	kubectl get pod --show-labels
@@ -38,3 +40,12 @@ delete_pod-namespace:
 	kubectl delete pod nginx -n staging
 delete_allpod-namespace:
 	kubectl delete pod --all -n staging
+
+list_rc:
+	kubectl get rc
+create_rc:
+	kubectl create -f replication_controller/nginx-rc.yaml
+delete_rc:
+	kubectl delete rc nginx-rc
+delete_rc-casecade:
+	kubectl delete rc nginx-rc --cascade=false
