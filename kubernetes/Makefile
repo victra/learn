@@ -49,3 +49,12 @@ delete_rc:
 	kubectl delete rc nginx-rc
 delete_rc-casecade:
 	kubectl delete rc nginx-rc --cascade=false
+
+list_rs:
+	kubectl get rs
+create_rs:
+	kubectl create -f replica_set/nginx-rs.yaml
+delete_rs:
+	kubectl delete rs nginx-rs
+delete_rs-casecade:
+	kubectl delete rs nginx-rs --cascade=false
