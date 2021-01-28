@@ -58,3 +58,12 @@ delete_rs:
 	kubectl delete rs nginx-rs
 delete_rs-casecade:
 	kubectl delete rs nginx-rs --cascade=false
+
+list_ds:
+	kubectl get daemonset
+create_ds:
+	kubectl create -f daemon_set/nginx-ds.yaml
+delete_ds:
+	kubectl delete ds daemon-nginx
+delete_ds-casecade:
+	kubectl delete ds daemon-nginx --cascade=false
