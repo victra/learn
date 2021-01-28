@@ -67,3 +67,10 @@ delete_ds:
 	kubectl delete ds daemon-nginx
 delete_ds-casecade:
 	kubectl delete ds daemon-nginx --cascade=false
+
+list_job:
+	kubectl get job
+create_job:
+	kubectl create -f job/nodejs-job.yaml
+delete_job:
+	kubectl delete job nodejs-job
