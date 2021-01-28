@@ -5,6 +5,8 @@ detail_node:
 
 list_pod:
 	kubectl get pod
+show_log:
+	kubectl logs namepod
 detail_pod:
 	kubectl describe pod nginx
 create_pod:
@@ -74,3 +76,10 @@ create_job:
 	kubectl create -f job/nodejs-job.yaml
 delete_job:
 	kubectl delete job nodejs-job
+
+list_cj:
+	kubectl get cj
+create_cj:
+	kubectl create -f cron_job/nodejs-cj.yaml
+delete_cj:
+	kubectl delete cj nodejs-cj
