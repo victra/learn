@@ -1,9 +1,9 @@
-package golang
+package main
 
 import "fmt"
 import "runtime"
 
-func golang() {
+func main() {
 	runtime.GOMAXPROCS(2)
 
 	var messages = make(chan string)
