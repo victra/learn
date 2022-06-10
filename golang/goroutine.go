@@ -4,25 +4,20 @@ import "fmt"
 import "runtime"
 
 func main() {
-	runtime.GOMAXPROCS(2)
+	runtime.GOMAXPROCS(3)
 
-	var messages = make(chan string)
+	messages := make(chan string)
+	var dataName []string
 
-	var sayHelloTo = func(who string) {
-		var data = fmt.Sprintf("hello %s", who)
-		messages <- data
+	for _, each := range []string{"wick", "hunt", "bourne"} {
+		go func(who string) {
+			var data = fmt.Sprintf("hello %s", who)
+			messages <- data
+		}(each)
 	}
 
-	go sayHelloTo("john wick")
-	go sayHelloTo("ethan hunt")
-	go sayHelloTo("jason bourne")
-
-	var message1 = <-messages
-	fmt.Println(message1)
-
-	var message2 = <-messages
-	fmt.Println(message2)
-
-	var message3 = <-messages
-	fmt.Println(message3)
+	for i := 0; i < 3; i++ {
+		dataName = append(dataName, <-messages)
+	}
+	fmt.Println(dataName)
 }
